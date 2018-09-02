@@ -1,33 +1,44 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Link from 'gatsby-link';
+import styled from 'styled-components';
+import Logo from '../images/logo.svg';
 
-const Header = ({ siteTitle }) => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </div>
-)
+const HeaderWrapper = styled.div`
+	background: rebeccapurple;
+	marginBottom: 1.45rem;
+	h1 {
+		margin: 0;
+		img {
+			height: 60px;
+		}
+	}
+`;
+const HeaderContainer = styled.div`
+	margin: 0 auto;
+	maxWidth: 960px;
+	padding: 1.45rem 1.0875rem;
+`;
 
-export default Header
+const Header = () => (
+	<HeaderWrapper>
+		<HeaderContainer>
+			<h1>
+				<Link to="/">
+					<img src={Logo} alt="Pedro Ferrari Logo" />
+				</Link>
+			</h1>
+			<nav>
+				<ul>
+					<li>
+						<Link to="/">Posts</Link>
+					</li>
+					<li>
+						<Link to="/about">About</Link>
+					</li>
+				</ul>
+			</nav>
+		</HeaderContainer>
+	</HeaderWrapper>
+);
+
+export default Header;
